@@ -14,5 +14,6 @@ jobs:
       
       - name: Run bash command using comment body
         run: |
-          comment_body="${{ github.event.comment.body }}"
+          # comment_body="${{ github.event.comment.body }}"
+          INITIAL_URL=$(echo "${{ github.event.comment.body }}" | grep -o 'https://github.com/github/release-assets/assets/[^ >]*')
           echo "The comment body contains: $comment_body"
